@@ -1,4 +1,4 @@
-document.getElementById('generateBtn').addEventListener('click', async function() {
+/*document.getElementById('generateBtn').addEventListener('click', async function() {
     const fileInput = document.getElementById('fileInput');
     const status = document.getElementById('status');
 
@@ -25,13 +25,12 @@ document.getElementById('generateBtn').addEventListener('click', async function(
 
             if (response.ok) {
                 const blob = await response.blob();
-                const downloadLink = document.createElement('a');
+                const downloadContainer = document.getElementById('downloadContainer');
+                const downloadLink = document.getElementById('downloadLink');
                 downloadLink.href = URL.createObjectURL(blob);
                 downloadLink.download = 'artykul.html';
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-                status.textContent = 'Gotowe!';
+                downloadContainer.style.display = 'block';
+                status.textContent = 'Gotowe! Pobierz artykuł';
             } else {
                 status.textContent = 'Wystąpił błąd podczas generowania artykułu.';
             }
@@ -42,4 +41,33 @@ document.getElementById('generateBtn').addEventListener('click', async function(
     };
 
     reader.readAsText(file);
+});*/
+
+document.getElementById('generateBtn').addEventListener('click', function () {
+    // Symulacja generowania artykułu (w prawdziwej aplikacji zamieść logikę API)
+    const fileInput = document.getElementById('fileInput');
+    if (fileInput.files.length === 0) {
+        alert('Wybierz plik przed generowaniem artykułu.');
+        return;
+    }
+
+    // Pokazuje, że generowanie artykułu jest w trakcie
+    document.getElementById('status').innerText = 'Tworzenie artykułu...';
+
+    // Symulacja odebrania pliku z serwera (zastąp to faktycznym API)
+    setTimeout(() => {
+        // Tutaj odbierzemy plik (symulacja adresu pliku)
+        const articleBlob = new Blob(["<html><body><h1>Przykładowy Artykuł</h1><p>Treść artykułu...</p></body></html>"], { type: 'text/html' });
+        const url = URL.createObjectURL(articleBlob);
+
+        // Wyświetlanie przycisku pobierania
+        const downloadContainer = document.getElementById('downloadContainer');
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = url;
+        downloadLink.download = 'artykul.html';
+        downloadContainer.style.display = 'grid';
+
+        // Czyszczenie statusu
+        document.getElementById('status').innerText = '';
+    }, 2000); // Symulacja opóźnienia serwera
 });
