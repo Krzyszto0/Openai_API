@@ -15,7 +15,7 @@ document.getElementById('generateBtn').addEventListener('click', async function(
         status.textContent = 'Tworzenie artykułu...';
 
         try {
-            const response = await fetch('https://openai-api-1zx4.onrender.com/generate-html', {
+            const response = await fetch('http://localhost:3000/generate-html', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

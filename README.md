@@ -1,27 +1,10 @@
 # Konwerter pliku tekstowego na artykuł HTML
 ## Uruchomienie aplikacji
 
-Po pobraniu repozytorum nalezy na komputerze otworzyć terminal/PowerShell i wpisać następujące komendy:
+Po pobraniu/sklonowaniu repozytorium nalezy pobrać środowisko node.js, jeśli nie jest zainstalowne na urządzeniu:
 
-Dla systemu Windows:
-```
-winget install Schniz.fnm
-fnm env --use-on-cd | Out-String | Invoke-Expression
-fnm use --install-if-missing 22
-```
+https://nodejs.org/en/download/prebuilt-installer/current
 
-Dla systemu MacOS/Linux:
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-nvm install 22
-```
-
-Sprawdzamy czy node.js zainstalował się poprawnie
-```
-node -v # powinno wypisać `v22.11.0`
-
-npm -v # powinno wypisać `10.9.0`
-```
 
 Następnie nalezy przejść do pobranego folderu:
 ```
